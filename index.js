@@ -20,12 +20,13 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 // ---------- DB ----------
-const mongoURI =
-  process.env.MONGO_URI || "mongodb://127.0.0.1:27017/secretsApp";
-mongoose
-  .connect(mongoURI)
-  .then(() => console.log("✅ MongoDB connected"))
-  .catch((err) => console.error("❌ DB error:", err));
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log("✅ MongoDB Connected"))
+.catch(err => console.error("❌ DB error:", err));
+
 
 // ---------- Auth Middleware ----------
 const isAuthenticated = (req, res, next) => {
