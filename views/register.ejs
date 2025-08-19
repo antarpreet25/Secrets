@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head") %>
+</head>
+<body>
+  <div class="container">
+    <h2>Register</h2>
+    <% if (error) { %><p class="error"><%= error %></p><% } %>
+    <form action="/register" method="POST">
+      <input name="name" type="text" placeholder="Full Name" required />
+      <input name="email" type="email" placeholder="Email" required />
+      <input name="password" id="password" type="password" placeholder="Password" required />
+      <input type="checkbox" onclick="togglePassword()"> Show Password
+      <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="/login">Login</a></p>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const pw = document.getElementById('password');
+      pw.type = pw.type === 'password' ? 'text' : 'password';
+    }
+  </script>
+</body>
+</html>
