@@ -5,16 +5,17 @@
 </head>
 <body>
   <div class="container">
-    <h2>Register</h2>
-    <% if (error) { %><p class="error"><%= error %></p><% } %>
-    <form action="/register" method="POST">
+    <h2>Create an account</h2>
+    <% if (error) { %><p class="msg error"><%= error %></p><% } %>
+    <form action="/register" method="POST" class="card">
       <input name="name" type="text" placeholder="Full Name" required />
       <input name="email" type="email" placeholder="Email" required />
       <input name="password" id="password" type="password" placeholder="Password" required />
-      <input type="checkbox" onclick="togglePassword()"> Show Password
-      <button type="submit">Register</button>
+      <p class="hint">Password must include lowercase, uppercase, a number, and be at least 6 characters.</p>
+      <label class="showpw"><input type="checkbox" onclick="togglePassword()"> Show Password</label>
+      <button type="submit" class="btn">Register</button>
     </form>
-    <p>Already have an account? <a href="/login">Login</a></p>
+    <p class="muted">Already have an account? <a href="/login">Login</a></p>
   </div>
 
   <script>

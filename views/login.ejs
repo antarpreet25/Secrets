@@ -6,13 +6,14 @@
 <body>
   <div class="container">
     <h2>Login</h2>
-    <% if (error) { %><p class="error"><%= error %></p><% } %>
-    <form action="/login" method="POST">
+    <% if (error) { %><p class="msg error"><%= error %></p><% } %>
+    <form action="/login" method="POST" class="card">
       <input name="email" type="email" placeholder="Email" required />
       <input name="password" id="password" type="password" placeholder="Password" required />
-      <input type="checkbox" onclick="togglePassword()"> Show Password
-      <button type="submit">Login</button>
+      <label class="showpw"><input type="checkbox" onclick="togglePassword()"> Show Password</label>
+      <button type="submit" class="btn">Login</button>
     </form>
+    <p class="muted">No account? <a href="/register">Register</a></p>
   </div>
 
   <script>
